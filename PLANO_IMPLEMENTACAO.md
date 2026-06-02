@@ -29,8 +29,8 @@ Justificativa: Para simular a persistência de dados de usuários, trens e logs 
 
 Árvore de Diretórios do Projeto
 
-text
-ferrorama-app/
+```text
+ferorama-app/
 ├── README.md
 ├── docs/
 │   └── PLANO_IMPLEMENTACAO.md
@@ -44,20 +44,22 @@ ferrorama-app/
 │   │   ├── dados.js
 │   │   ├── main.js
 │   │   └── utils.js
-│   └── img/
-│       ├── logo.svg
-│       ├── icons/
-│       └── avatars/
+│   ├── img/
+│   │   ├── logo.svg
+│   │   ├── icons/
+│   │   └── avatars/
 ├── src/
 │   ├── public/
 │   │   ├── login.html
 │   │   └── cadastro.html
-│   └── dashboard/
-│       ├── index.html
-│       ├── trens.html
-│       ├── sensores.html
-│       └── usuarios.html
+│   ├── dashboard/
+│   │   ├── index.html
+│   │   ├── trens.html
+│   │   ├── sensores.html
+│   │   └── usuarios.html
+│
 └── index.html
+```
 
  Justificativa da Estrutura:
 Divisão por Contexto de Uso (Auth vs. Dashboard): Separar as telas públicas (src/public/) das telas administrativas e operacionais (src/dashboard/) garante que a lógica de proteção de rotas via JavaScript possa ser aplicada em blocos. O arquivo principal index.html na raiz agirá como o redirecionador inicial do sistema.
@@ -129,9 +131,13 @@ Perfil do Usuário: Novo usuário (Operador ou Técnico aguardando aprovação).
 Sequência de Telas e Ações:
 
 login.html -> Usuário clica no link "Criar uma nova conta".
-cadastro.html -> Preenche Nome, E-mail, Senha e escolher seu Cargo Clica em "Cadastrar" .
+
+cadastro.html -> Preenche Nome, E-mail, Senha e escolher seu Cargo Clica em "Cadastrar".
+
 Sistema exibe um alerta/modal de sucesso de cadastro e limpa o formulário, redirecionando automaticamente após 2 segundos.
+
 login.html -> Inserir as credenciais recém-criadas $\rightarrow$ Clica em "Entrar".
+
 src/dashboard/index.html -> Sistema valida as credenciais e o usuário visualiza os cartões de resumo da frota.
 
 
@@ -141,8 +147,11 @@ Perfil do Usuário: Operador da Malha.
 Sequência de Telas e Ações:
 
 src/dashboard/index.html -> Na central de notificações ou nos cards de monitoramento rápidos, o operador vê um card piscando em vermelho com o texto "Alerta Crítico: Sensor Temp. Eixo - Trem TR-04".
+
 Ação: O operador clica no botão "Ver Detalhes" localizado no próprio card de alerta.
+
 src/dashboard/sensores.html -> O sistema redireciona o operador para a tela de sensores já aplicando automaticamente um filtro pelo ID do Trem TR-04.
+
 Ação: O operador analisa o gráfico/tabela com o histórico das últimas leituras do sensor de temperatura para tomar a decisão de parada técnica.
 
 
@@ -152,9 +161,13 @@ Perfil do Usuário: Administrador do Sistema.
 Sequência de Telas e Ações:
 
 src/dashboard/index.html -> No menu lateral (Sidebar), o Admin clica na opção "Gerenciar Usuários".
-src/dashboard/usuarios.html -> O Admin visualiza a tabela de usuários ativos e clica no botão primário "+ Adicionar Novo Usuário".3
+
+src/dashboard/usuarios.html -> O Admin visualiza a tabela de usuários ativos e clica no botão primário "+ Adicionar Novo Usuário".
+
 Modal se abre em tela exibindo o formulário de cadastro administrativo (Nome, E-mail, Nível de Permissão).
+
 Ação: Admin preenche as informações e clica em "Salvar".
+
 src/dashboard/usuarios.html -> O modal fecha, a tabela atualiza dinamicamente injetando a nova linha e uma mensagem toast de confirmação aparece no topo da tela.
 
 Fluxo 4: Operador filtra a lista de trens por status
@@ -163,21 +176,34 @@ Perfil do Usuário: Operador ou Técnico.
 Sequência de Telas e Ações:
 
 src/dashboard/index.html -> No menu lateral, clica em "Frotas de Trens".
+
 src/dashboard/trens.html -> Carrega a tela com a listagem completa de locomotivas e vagões monitorados.
+
 Ação: O usuário clica no componente de dropdown ou grupo de botões de filtro e escolhe a opção "Em Manutenção".
+
 Sistema/JavaScript: Dispara um evento que escuta a mudança, filtra o array de dados e re-renderiza a tabela exibindo exclusivamente os trens com o status selecionado.
 
 
 ## Seção 6 — Critérios de "Pronto" (Definition of Done)
 
 Para garantir o padrão de qualidade combinado e a consistência visual do projeto S.A. Ferrorama, nenhuma tela ou funcionalidade será considerada finalizada se não cumprir integralmente o seguinte checklist:
+
 HTML Semântico: Uso obrigatório das tags estruturais corretas (<header>, <nav>, <main>, <section>, <article>, <footer>) eliminando o uso excessivo de divs sem contexto (divite).
+
 Estilização Limpa: Ausência total de CSS inline (style="...") e ausência de seletores id desnecessários para estilo. Toda a estilização deve estar concentrada nas folhas de estilo correspondentes.
+
 Responsividade Mobile: A interface deve adaptar-se perfeitamente a telas de smartphones (largura alvo: 390px), sem quebras de layout, textos sobrepostos ou necessidade de barra de rolagem horizontal.
+
 Responsividade Desktop: O layout deve se comportar de forma limpa e centralizada em telas de alta resolução (largura alvo: 1440px), respeitando os limites máximos de largura definidos no mockup.
+
 Console Limpo: Ao carregar a tela e interagir com seus botões, nenhum erro (Error, ReferenceError, etc.) ou alertas esquecidos de depuração (console.log) devem aparecer nas ferramentas de desenvolvedor do navegador.
+
 Consistência Visual Integrada: Cores de fundo, tipografia (tamanhos e pesos de fonte) e raios de borda (border-radius) dos botões devem seguir estritamente o guia de estilos estipulado no mockup.
+
 Navegação Funcional (Links Integros): Todos os links internos, botões de fechar modais e redirecionamentos mútuos devem estar apontando para os arquivos corretos, mesmo que a regra de negócio lógica ainda esteja sendo simulada.
+
 Acessibilidade Básica: Inputs de formulários devem possuir tags <label> associadas explicitamente através do atributo for, e imagens essenciais devem conter o atributo alt preenchido de forma descritiva.
+
 Validação de Código Cruzada (Peer Review): O código da tela/componente deve ser revisado, testado localmente e aprovado por pelo menos mais um integrante do grupo antes de ser mesclado na branch principal.
+
 Rastreabilidade de Histórico (Git): O commit que finaliza a tarefa deve ser realizado com mensagens claras, descritivas e estruturadas (Ex: feat(ui): implementa tabela responsiva de trens na tela de frotas).
