@@ -188,22 +188,22 @@ Sistema/JavaScript: Dispara um evento que escuta a mudança, filtra o array de d
 
 Para garantir o padrão de qualidade combinado e a consistência visual do projeto S.A. Ferrorama, nenhuma tela ou funcionalidade será considerada finalizada se não cumprir integralmente o seguinte checklist:
 
-HTML Semântico: Uso obrigatório das tags estruturais corretas (<header>, <nav>, <main>, <section>, <article>, <footer>) eliminando o uso excessivo de divs sem contexto (divite).
+- **HTML Semântico:** Uso obrigatório das tags estruturais corretas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) eliminando o uso excessivo de divs sem contexto (`<div>`).
 
-Estilização Limpa: Ausência total de CSS inline (style="...") e ausência de seletores id desnecessários para estilo. Toda a estilização deve estar concentrada nas folhas de estilo correspondentes.
+- **Estilização Limpa:** Ausência total de CSS inline (style="...") e ausência de seletores id desnecessários para estilo. Toda a estilização deve estar concentrada nas folhas de estilo correspondentes.
 
-Responsividade Mobile: A interface deve adaptar-se perfeitamente a telas de smartphones (largura alvo: 390px), sem quebras de layout, textos sobrepostos ou necessidade de barra de rolagem horizontal.
+- **Responsividade Mobile:** A interface deve adaptar-se perfeitamente a telas de smartphones (largura alvo: 390px), sem quebras de layout, textos sobrepostos ou necessidade de barra de rolagem horizontal.
 
-Responsividade Desktop: O layout deve se comportar de forma limpa e centralizada em telas de alta resolução (largura alvo: 1440px), respeitando os limites máximos de largura definidos no mockup.
+- **Responsividade Desktop:** O layout deve se comportar de forma limpa e centralizada em telas de alta resolução (largura alvo: 1440px), respeitando os limites máximos de largura definidos no mockup.
 
-Console Limpo: Ao carregar a tela e interagir com seus botões, nenhum erro (Error, ReferenceError, etc.) ou alertas esquecidos de depuração (console.log) devem aparecer nas ferramentas de desenvolvedor do navegador.
+- **Console Limpo:** Ao carregar a tela e interagir com seus botões, nenhum erro (Error, ReferenceError, etc.) ou alertas esquecidos de depuração (console.log) devem aparecer nas ferramentas de desenvolvedor do navegador.
 
-Consistência Visual Integrada: Cores de fundo, tipografia (tamanhos e pesos de fonte) e raios de borda (border-radius) dos botões devem seguir estritamente o guia de estilos estipulado no mockup.
+- **Consistência Visual Integrada:** Cores de fundo, tipografia (tamanhos e pesos de fonte) e raios de borda (border-radius) dos botões devem seguir estritamente o guia de estilos estipulado no mockup.
 
-Navegação Funcional (Links Integros): Todos os links internos, botões de fechar modais e redirecionamentos mútuos devem estar apontando para os arquivos corretos, mesmo que a regra de negócio lógica ainda esteja sendo simulada.
+- **Navegação Funcional (Links Integros):** Todos os links internos, botões de fechar modais e redirecionamentos mútuos devem estar apontando para os arquivos corretos, mesmo que a regra de negócio lógica ainda esteja sendo simulada.
 
-Acessibilidade Básica: Inputs de formulários devem possuir tags <label> associadas explicitamente através do atributo for, e imagens essenciais devem conter o atributo alt preenchido de forma descritiva.
+- **Acessibilidade Básica:** Inputs de formulários devem possuir tags <label> associadas explicitamente através do atributo for, e imagens essenciais devem conter o atributo alt preenchido de forma descritiva.
 
-Validação de Código Cruzada (Peer Review): O código da tela/componente deve ser revisado, testado localmente e aprovado por pelo menos mais um integrante do grupo antes de ser mesclado na branch principal.
+- **Validação de Código Cruzada (Peer Review):** O código da tela/componente deve ser revisado, testado localmente e aprovado por pelo menos mais um integrante do grupo antes de ser mesclado na branch principal.
 
-Rastreabilidade de Histórico (Git): O commit que finaliza a tarefa deve ser realizado com mensagens claras, descritivas e estruturadas (Ex: feat(ui): implementa tabela responsiva de trens na tela de frotas).
+- **Rastreabilidade de Histórico (Git):** O commit que finaliza a tarefa deve ser realizado com mensagens claras, descritivas e estruturadas (Ex: feat(ui): implementa tabela responsiva de trens na tela de frotas).
